@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Student Management Portal</title>
+		<!-- mdl -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+		<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+		<!-- css -->
+		<link rel="stylesheet" href="enrolStudentWebsite.css">
+		<!-- map-->
+		<style type="text/css">
+			#map{height: calc(100vh - 56px);}
+		</style>
+    	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.js'></script>
+		<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css' rel='stylesheet'>
+	</head>
+	<body>
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
+		  <header class="mdl-layout__header">
+		    <div class="mdl-layout__header-row">
+		      <!-- Page Title -->
+		      <span class="mdl-layout-title">Student Management Portal</span>
+		    </div>
+		    <!-- Tabs Layout -->
+		    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+		      <a href="#studentListTab" class="mdl-layout__tab is-active">Student List</a>
+		      <a href="#newStudentTab" class="mdl-layout__tab">Enrol new Student</a>
+	      	</div>
+		  </header>
+		  <main class="mdl-layout__content">
+
+		  	<!-- First Tab -->
+		    <section class="mdl-layout__tab-panel is-active" id="studentListTab">
+		      <div class="page-content">
+		      	<!-- Feature: Student information -->
+		      	<div class="mdl-grid">
+		      		<!-- Column for student list using a table -->
+		      		<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone">
+		      			<h2>Students</h2>
+		      			<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp fill40">
+		      				<thead>
+		      					<tr>
+		      						<th>ID</th>
+		      						<th class="mdl-data-table__cell--non-numeric">Name</th>
+		      						<th>Semesters</th>
+		      						<th>Actions</th>
+		      					</tr>
+		      					<tbody id="studentList">
+		      					</tbody>
+		      				</thead>
+		      			</table>
+		      		</div>
+		      		<!-- Column for display selected student information -->
+		      		<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone">
+		      			<div class="mdl-grid">
+		      				<!-- View Student information -->
+		      				<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+		      					<div class="mdl-card mdl-shadow--4dp fill40" id="studentInfoCard">
+		      						<div class="mdl-card__title">
+			      						<h2 class="mdl-card__title-text"> Student Information </h2>
+			      					</div>
+			      					<div class="mdl-card__supporting-text">
+				      					<span> Student ID: <label id="studentId"></label></span><br/>
+				      					<span> Name: <label id="fullName"></label></span><br/>
+				      					<span> Date of Birth: <label id="dateOfBirth"></label></span><br/>
+				      					<span> Gender: <label id="gender"></label></span><br/>
+				      					<span> Address: <label id="address"></label></span><br/>
+				      					<span> Country: <label id="country"></label></span><br/>
+			      						<b>Contact Details:</b> <br/>
+			      						<span> Email: <label id="email"></label></span><br/>
+			      						<span> Phone: <label id="phone"></label></span><br/>
+												<button type="button" onclick=findAddress()>Search Student's Address</button>
+			      					</div>
+			      					<div class="mdl-card__actions mdl-card--border">
+			      						<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="enrolmentRecordButton">View Enrolment Record</a>
+			      					</div>
+			      					<div id="hiddenDialog"></div>
+	      						</div>
+		      				</div>
+		      			</div>
+		      			<div class="mdl-grid">
+									<div id='mapArea' class='page-block'></div>
+									<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+		      				</div>
+		      			</div>
+		      		</div>
+		      	</div>
+		      </div>
+		    </section>
+
+		    <!-- Second tab -->
+		    <section class="mdl-layout__tab-panel" id="newStudentTab">
+		      <div class="page-content">
+		      	<div class="mdl-grid">
+		      		<div class="mdl-cell mdl-cell--8-col mdl-cell--4-col-phone">
+								<!doctype html>
+								<html>
+								  <head>
+								    <div class="mdl-layout mdl-js-layout">
+								    <header class="mdl-layout__header">
+								    <div class="mdl-layout-icon"></div>
+								    <title>Enrol a student</title>
+								    <h1>Enrol a student</h1>
+								    </header>
+								    </div>
+								  </head>
+								  <body>
+								    <br><br><br><br><br><br>
+								    <div class="mdl-textfield mdl-js-textfield">
+								    <p><b>Full name:</b><br>
+								      <input type='text' id="fname" placeholder='First' class="mdl-textfield__input">
+								      <label class="mdl-textfield__label" for="fname"></label>
+								      <input type='text' id='lname' placeholder='Last' class="mdl-textfield__input">
+								      <label class="mdl-textfield__label" for="lname"></label>
+								      <br>
+								    <b>Date of birth:</b><br>
+								      <input class="mdl-textfield__input" type='date' id='dob'>
+								      <label class="mdl-textfield__label" for="dob"></label>
+								      <br>
+								    <b>Gender:</b><br>
+								      <input type='radio' id='ZMgender' value='Male'> Male<br>
+								      <input type='radio' id='ZFgender' value='Female'> Female<br>
+								      <input type='radio' id='ZOgender' value='Other'> Other
+								      <br>
+								    <b>Country:</b><br>
+								      <select id='Zcountry'>
+								      <option value=null>Select</option>
+								      <option value='Australia'>Australia </option>
+								      <option value='New Zealand'>New Zealand </option>
+								      <option value='Other'>Other </option>
+								      </select>
+								      <br>
+								    <b>Address: </b><br>
+								      <input type='text' id='Zaddress'>
+								      <br>
+								    <b>Email: </b><br>
+								      <input type='email' id='Zemail'>
+								      <br>
+								      <br>
+								      <br>
+								    <button onclick="enrolStudent()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Submit</button>
+								    </div>
+								  </body>
+								</html>
+		      		</div>
+		      	</div>
+		      </div>
+		    </section>
+		  </main>
+		</div>
+		<!-- link js -->
+		<script src="enrolStudentWebsite.js"></script>
+	</body>
+</html>

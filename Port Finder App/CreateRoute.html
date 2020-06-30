@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title>Display a map</title>
+  <!-- mapbox -->
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.2/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.2/mapbox-gl.css' rel='stylesheet' />
+  <!-- css -->
+  <link rel="stylesheet" href="style.css">
+  <!-- mdl -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.grey-orange.min.css"/>
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</head>
+<body>
+  <!--navigation bar-->
+	<header class="mdl-layout__header">
+		<div class="mdl-layout__header-row">
+			<a id="title" class="mdl-navigation__link" href="Mainpage.html" ><b>Ship Us Safe</b></a>
+			<div class="mdl-layout-spacer"></div>
+			<nav class="mdl-navigation mdl-layout--large-screen-only">
+				<a class="mdl-navigation__link" href="CreateNewShip.html">Create Ships</a>
+				<a class="mdl-navigation__link" href="CreateNewPort.html">Create Ports</a>
+				<a class="mdl-navigation__link">Create Routes</a>
+				<a class="mdl-navigation__link" href="ListShips.html">Search Ships</a>
+				<a class="mdl-navigation__link" href="ListPorts.html">Search Ports</a>
+        <a class="mdl-navigation__link" href="ViewRoutes.html">View Routes</a>
+			</nav>
+		</div>
+	</header>
+  <div id="createroutecss"><br>
+    <input name="FirstName" id="startport" placeholder="Select Starting Port">
+    <div id='distance' class='distance-container'></div>
+    <button onclick="enrolStudent()">Submit Starting Port</button><br>
+    <input name="Destination" id="DestinationPort" placeholder="Select Destination Port"><br>
+    <input name="description" id="Description" placeholder="Description"><br>
+    <input name="reee" id="okkkdude" placeholder="Select Ship"><br>
+    Departure time: <input type="date" id="time"></input><br>
+    <button onclick="getShipQuery()">Submit ships</button><br>
+    <button onclick="getWeather()">Create Route</button>
+    <h3 id="fug">Result</h3>
+    <p id="results"></p>
+    <label id="theweather"></label>
+  </div>
+  <div id='mapArea'></div>
+  <script src="CreateRoute.js"></script>
+  <script src="https://eng1003.monash/api/v1/ships/?callback=functionName2"></script>
+  <script src="https://eng1003.monash/api/v1/ports/?callback=functionName"></script>
+  <script src='https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script>
+</body>
+</html>

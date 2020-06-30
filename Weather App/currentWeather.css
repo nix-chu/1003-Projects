@@ -1,0 +1,51 @@
+
+#mapArea{
+  height:400px;
+  width: 55%;
+  margin-right: 10px;
+  border: 1px solid grey;
+  float:left;
+  margin-left: 10px;
+}
+#contentArea{
+  max-width: 45%;
+  float: left;
+  height:400px;
+  margin-left: 20px;
+}
+
+#titleArea{
+  display: block;
+  margin-bottom:10px;
+  text-align: center;
+  font-size: 20px;
+
+}
+
+#buttonArea{
+  margin:10px;
+  float:left;
+}
+
+#table-weather{
+  width:100%;
+  border-collapse: collapse;
+}
+
+td,th{
+  width:50%;
+  border: 1px solid grey;
+
+}
+
+th{
+  font-size: 16px;
+  font-weight:600;
+  text-align: right;
+  padding : 5px;
+}
+td{
+  font-size:15px;
+  font-weight:300;
+  text-align: center;
+}

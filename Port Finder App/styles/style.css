@@ -1,0 +1,165 @@
+#title { font-size:30px; }
+body { margin:0; padding:0; }
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+#theTable {
+  position: absolute;
+  right: 10px;
+  font-size: 11px;
+}
+
+#mapArea{
+  height:510px;
+  width: 50%;
+  margin-right: 10px;
+  border: 1px solid grey;
+  float: right;
+  margin-left: 10px;
+  position: relative;
+}
+
+#thePortsForm{
+  position: relative;
+  float: left;
+  height: 270px;
+}
+
+#theShipsForm{
+  position: relative;
+}
+
+#currentshipscss{
+  position: relative;
+  height: 490px;
+  width: 75%;
+  float: right;
+  overflow: auto;
+}
+
+#currentportscss{
+  position: relative;
+  height: 243px;
+  width: 48%;
+  overflow: auto;
+}
+
+#currentPorts{
+  font-size: 10px;
+}
+
+#shiptablecss{
+  position: relative;
+  float: right;
+  height: 490px;
+  width: 62%;
+  overflow: auto;
+}
+
+#searchshipcss{
+  position: relative;
+  width: 36%;
+  float: left;
+}
+
+#porttablecss {
+  position: relative;
+  height: 330px;
+  width: 48%;
+  overflow: auto;
+}
+
+#searchportscss{
+  position: relative;
+  width: 36%;
+  float: left;
+}
+
+.distance-container {
+position: absolute;
+top: 10px;
+left: 10px;
+z-index: 1;
+}
+ 
+.distance-container > * {
+background-color: rgba(0, 0, 0, 0.5);
+color: #fff;
+font-size: 11px;
+line-height: 18px;
+display: block;
+margin: 0;
+padding: 5px 10px;
+border-radius: 3px;
+}
+
+#createroutecss{
+  position: relative;
+  width: 48%;
+  float: left;
+}
+
+#mptablecss{
+  position: absolute;
+  height: 450px;
+  width: 48%;
+  float: left;
+  overflow: auto;
+}
+
+#mptable{
+  font-size: 13px;
+}
+
+#mpbutton1{
+  position: relative;
+  float: left;
+}
+
+#mpbutton2{
+  position: relative;
+  float: left;
+}
+
+#alltables{
+  position: absolute;
+  float: left;
+  width: 48%
+  height: 510px;
+}
+
+#pastroutes{
+  position: relative;
+  height: 90px;
+  overflow: auto;
+}
+
+#ongoingroutes{
+  position: relative;
+  height: 250px;
+  overflow: auto;
+}
+
+#futureroutes{
+  position: relative;
+  height: 90px;
+  overflow: auto;
+}
+
+#prtable, #ortable, #frtable{
+  font-size: 11px;
+}

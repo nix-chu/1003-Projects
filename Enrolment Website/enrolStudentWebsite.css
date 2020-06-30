@@ -1,0 +1,12 @@
+.fill40 {
+	width:40vw;
+}
+
+#mapArea{
+  height:400px;
+  width: 55%;
+  margin-right: 10px;
+  border: 1px solid grey;
+  float:left;
+  margin-left: 10px;
+}

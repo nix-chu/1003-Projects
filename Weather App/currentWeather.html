@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Current weather</title>
+    <link rel="stylesheet" href="currentWeather.css">
+    <style type="text/css">
+			#map{height: calc(100vh - 56px);}
+		</style>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.js'></script>
+		<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css' rel='stylesheet'>
+  <body>
+    <div  id='titleArea'><h2>Current weather at your location</h2></div>
+    <div id='mapArea' class='page-block'></div>
+    <div id='contentArea'>
+      <!-- two buttons-->
+      <div  id='buttonArea'>
+        <span>
+        <button type="button" name="button" onclick=getCurrentPosition()>Get Current Location</button>
+        <button type="button" name="button" onclick=getWeather()>Get current Weather</button>
+        </span>
+      </div>
+      <div id='outputArea'>
+        <table id='table-weather'>
+          <tr><th>Current Temperature</th><td><label id='ct'></td></tr>
+          <tr><th>Weather Summary</th><td><label id='ws'></td></tr>
+          <tr><th>Humidity</th><td><label id='hum'></td></tr>
+          <tr><th>Pressure</th><td><label id='pres'></td></tr>
+          <tr><th>Dew Point</th><td><label id='dp'></td></tr>
+          <tr><th>UV index</th><td><label id='uv'></td></tr>
+        </table>
+      </div>
+
+
+  </body>
+  <script type="text/javascript" src='currentWeather.js'></script>
+</html>

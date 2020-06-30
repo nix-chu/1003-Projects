@@ -1,0 +1,77 @@
+<html>
+<head>
+	<!-- mdl libraries -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.grey-orange.min.css"/>
+	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+	<!-- css stylesheet -->
+	<link rel="stylesheet" href="style.css">
+	<!-- map -->
+	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.2/mapbox-gl.js'></script>
+	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.2/mapbox-gl.css' rel='stylesheet'>
+</head>
+<body>
+	<!--navigation bar-->
+	<header class="mdl-layout__header">
+		<div class="mdl-layout__header-row">
+			<a id="title" class="mdl-navigation__link" href="Mainpage.html"><b>Ship Us Safe</b></a>
+			<div class="mdl-layout-spacer"></div>
+			<nav class="mdl-navigation mdl-layout--large-screen-only">
+				<a class="mdl-navigation__link" href="CreateNewShip.html">Create Ships</a>
+				<a class="mdl-navigation__link">Create Ports</a>
+				<a class="mdl-navigation__link" href="CreateRoute.html">Create Routes</a>
+				<a class="mdl-navigation__link" href="ListShips.html">Search Ships</a>
+				<a class="mdl-navigation__link" href="ListPorts.html">Search Ports</a>
+				<a class="mdl-navigation__link" href="ViewRoutes.html">View Routes</a>
+			</nav>
+		</div>
+	</header>
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="thePortsForm">
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="text" id="name">
+				<label class="mdl-textfield__label">Name</label>
+			</div>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="text" id="location" onchange="findLocation()">
+				<label class="mdl-textfield__label">Location</label>
+			</div>
+			Location Precision:
+			<select id="locprec">
+				<option></option>
+				<option value="Accurate">Accurate</option>
+				<option value="Approximate">Approximate</option>
+				<option value="Unknown">Unknown</option>
+			</select><br>
+			Type:
+			<select id="type">
+				<option value=""></option>
+				<option value="Sea">Sea</option>
+				<option value="River">River</option>
+				<option value="Lake">Lake</option>
+				<option value="Unknown">Unknown</option>
+			</select><br>
+			Size:
+			<select id="size">
+				<option value=""></option>
+				<option value="Very_Small">Very Small</option>
+				<option value="Small">Small</option>
+				<option value="Medium">Meduim</option>
+				<option value="Big">Big</option>
+				<option value="Unknown">Unknown</option>
+			</select><br><br><br>
+		<button onclick="submitPort()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Submit</button>
+		</div>
+		<div id='mapArea'></div>
+		<div id='currentportscss'>
+			<table id='currentPorts' class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+				<tr>
+					<th>Name</th>
+					<th>Country</th>
+					<th>Type</th>
+					<th>Size</th>
+				</tr>
+			</table>
+		</div>
+		<script src="createports.js"></script>
+	</body>
+</html>
